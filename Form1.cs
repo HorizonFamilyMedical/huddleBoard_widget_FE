@@ -27,7 +27,7 @@ namespace AccountDetailWindowsFormApp
             MakeButtonRound(button1);
             
 
-            string filepath = @"C:\Users\DELL\source\repos\RPA_WinFormApp\readFile.json";
+            string filepath = @"readFile.json";
             try
             {
 
