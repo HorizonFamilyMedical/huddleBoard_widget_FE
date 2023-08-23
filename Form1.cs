@@ -33,7 +33,7 @@ namespace AccountDetailWindowsFormApp
 
                 string jsonData = File.ReadAllText(filepath);
                 JArray jArray = JArray.Parse(jsonData);
-                JArray sortedArray = new JArray(jArray.OrderByDescending(obj => (string)obj["Status"]));
+                JArray sortedArray = new JArray(jArray[0].OrderByDescending(obj => (string)obj["Status"]));
                 string sortedJsonData = sortedArray.ToString();
 
 
