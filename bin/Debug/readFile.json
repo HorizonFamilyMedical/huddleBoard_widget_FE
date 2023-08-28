@@ -1,17 +1,6 @@
 [
     {
-        "Account Number": "111612",
-        "DOB": "1957-08-07",
-        "PtFname": "GLORIA",
-        "PtLname": "ADAMS",
-        "Name": "Colerectal Screening Center",
-        "DueDate": "2024-10-23",
-        "Status": "Open",
-        "LiveHuddleId": "9",
-        "GapCode": "COL"
-    },
-    {
-        "Account Number": "111612",
+        "Account": "111612",
         "DOB": "1957-08-07",
         "PtFname": "GLORIA",
         "PtLname": "ADAMS",
@@ -22,7 +11,7 @@
         "GapCode": "COL"
     },
     {
-        "Account Number": "111612",
+        "Account": "111612",
         "DOB": "1957-08-07",
         "PtFname": "GLORIA",
         "PtLname": "ADAMS",
