@@ -14,130 +14,11 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using ImageFormat = System.Drawing.Imaging.ImageFormat;
 using Tesseract;
-using ScreenTest;
 using System.Net;
 
 /*
  * Created by Kishore Kumar S and Akash C on 17-08-2023.
  */
-
-namespace ScreenTest
-{
-    public class PrintScreen
-    {
-        /// <summary>
-        /// Creates an Image object containing a screen shot of the entire desktop
-        /// </summary>
-        /// <returns></returns>
-        public Image CaptureScreen()
-        {
-            return CaptureWindow(User32.GetDesktopWindow());
-        }
-
-        /// <summary>
-        /// Creates an Image object containing a screen shot of a specific window
-        /// </summary>
-        /// <param name="handle">The handle to the window. (In windows forms, this is obtained by the Handle property)</param>
-        /// <returns></returns>
-        public Image CaptureWindow(IntPtr handle)
-        {
-            // get te hDC of the target window
-            IntPtr hdcSrc = User32.GetWindowDC(handle);
-            // get the size
-            User32.RECT windowRect = new User32.RECT();
-            User32.GetWindowRect(handle, ref windowRect);
-            int width = windowRect.right - windowRect.left;
-            int height = windowRect.bottom - windowRect.top;
-            // create a device context we can copy to
-            IntPtr hdcDest = GDI32.CreateCompatibleDC(hdcSrc);
-            // create a bitmap we can copy it to,
-            // using GetDeviceCaps to get the width/height
-            IntPtr hBitmap = GDI32.CreateCompatibleBitmap(hdcSrc, width, height);
-            // select the bitmap object
-            IntPtr hOld = GDI32.SelectObject(hdcDest, hBitmap);
-            // bitblt over
-            GDI32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, GDI32.SRCCOPY);
-            // restore selection
-            GDI32.SelectObject(hdcDest, hOld);
-            // clean up
-            GDI32.DeleteDC(hdcDest);
-            User32.ReleaseDC(handle, hdcSrc);
-
-            // get a .NET image object for it
-            Image img = Image.FromHbitmap(hBitmap);
-            // free up the Bitmap object
-            GDI32.DeleteObject(hBitmap);
-
-            return img;
-        }
-
-        /// <summary>
-        /// Captures a screen shot of a specific window, and saves it to a file
-        /// </summary>
-        /// <param name="handle"></param>
-        /// <param name="filename"></param>
-        /// <param name="format"></param>
-        public void CaptureWindowToFile(IntPtr handle, string filename, ImageFormat format)
-        {
-            Image img = CaptureWindow(handle);
-            img.Save(filename, format);
-        }
-
-        /// <summary>
-        /// Captures a screen shot of the entire desktop, and saves it to a file
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <param name="format"></param>
-        public void CaptureScreenToFile(string filename, ImageFormat format)
-        {
-            Image img = CaptureScreen();
-            img.Save(filename, format);
-        }
-        private class GDI32
-        {
-
-            public const int SRCCOPY = 0x00CC0020; // BitBlt dwRop parameter
-
-            [DllImport("gdi32.dll")]
-            public static extern bool BitBlt(IntPtr hObject, int nXDest, int nYDest,
-                int nWidth, int nHeight, IntPtr hObjectSource,
-                int nXSrc, int nYSrc, int dwRop);
-            [DllImport("gdi32.dll")]
-            public static extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int nWidth,
-                int nHeight);
-            [DllImport("gdi32.dll")]
-            public static extern IntPtr CreateCompatibleDC(IntPtr hDC);
-            [DllImport("gdi32.dll")]
-            public static extern bool DeleteDC(IntPtr hDC);
-            [DllImport("gdi32.dll")]
-            public static extern bool DeleteObject(IntPtr hObject);
-            [DllImport("gdi32.dll")]
-            public static extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
-        }
-        private class User32
-        {
-            [StructLayout(LayoutKind.Sequential)]
-            public struct RECT
-            {
-                public int left;
-                public int top;
-                public int right;
-                public int bottom;
-            }
-
-            [DllImport("user32.dll")]
-            public static extern IntPtr GetDesktopWindow();
-            [DllImport("user32.dll")]
-            public static extern IntPtr GetWindowDC(IntPtr hWnd);
-            [DllImport("user32.dll")]
-            public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
-            [DllImport("user32.dll")]
-            public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
-
-        }
-    }
-}
-
 namespace AccountDetailWindowsFormApp
 {
     public partial class Form1 : Form
@@ -145,13 +26,12 @@ namespace AccountDetailWindowsFormApp
         public Form1()
         {
             InitializeComponent();
-
             DirectoryInfo di = new DirectoryInfo(@"C:\Users\DELL\Desktop");
             if (!di.Exists) { di.Create(); }
             PrintScreen ps = new PrintScreen();
             ps.CaptureScreenToFile(di + $"\\screenShootImg.png", ImageFormat.Png);
-            Console.WriteLine("No.1 Completed");
-            var path = @"C:\Users\DELL\source\repos\testingNew\testingNew\tessdata";
+            var path = @"C:\Users\DELL\source\repos\huddleBoard_widget_FE\tessdata\eng.traineddata";
+            string num;
             var sourceFilePath = di + $"\\screenShootImg.png";
             using (var engine = new TesseractEngine(path, "eng"))
             {
@@ -161,8 +41,6 @@ namespace AccountDetailWindowsFormApp
                     using (var page = engine.Process(img))
                     {
                         var text = page.GetText();
-                        Console.WriteLine("---Image Text---");
-                        Console.WriteLine(text);
                         string txtFilePath = @"C:\Users\DELL\Documents\textFile.txt";
                         if (!File.Exists(txtFilePath))
                         {
@@ -180,21 +58,25 @@ namespace AccountDetailWindowsFormApp
                             File.Delete(di + $"\\screenShootImg.png");
                         }
                         List<List<string>> groups = new List<List<string>>();
-                        List<string> current = null;
+                        List<string> current;
                         string word = "Account No:";
-                        string trgtLine = null;
-                        string num = null;
-                        string number = null;
+                        string trgtLine;
+                       /// string num;
+                        string number;
                         foreach (var line in File.ReadAllLines(txtFilePath))
                         {
+                            ///string num;
+                            ///List<long> result = groups.OfType<long>().OrderBy(num => num).ToList();
                             if (line.Contains(word))
                             {
+                                Console.WriteLine("No.9 Completed");
+                                Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$");
                                 trgtLine = line;
                                 current = new List<string>();
                                 groups.Add(current);
                                 num = trgtLine.Substring(trgtLine.IndexOf(word), 17);
                                 number = Regex.Replace(num, "[^0-9]+", string.Empty);
-                                File.AppendAllText(txtFilePath, $"A/c no: {number}");
+                                File.WriteAllText(txtFilePath, $"A/c no: {number}");
                                 try
                                 {
                                     HttpClient client = new HttpClient();
@@ -204,13 +86,13 @@ namespace AccountDetailWindowsFormApp
                                     string msg = response.ToString();
                                     if (response.IsSuccessStatusCode)
                                     {
-                                        Console.WriteLine(response.Content);
-                                        File.WriteAllText(txtFilePath, $"[{msg}]");
+                                        File.AppendAllText(txtFilePath, $"[{msg}]");
                                     }
                                 }
                                 catch (Exception ex)
                                 {
                                     ex.ToString();
+                                    //File.AppendAllText(txtFilePath, ex.ToString());
                                 }
                                 break;
                             }
@@ -218,8 +100,6 @@ namespace AccountDetailWindowsFormApp
                     }
                 }
             }
-
-
             bdy_pnl.Visible = false;
             ControlExtension.Draggable(button1, true);
             ControlExtension.Draggable(bdy_pnl, true);
@@ -367,6 +247,120 @@ namespace AccountDetailWindowsFormApp
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+    }
+
+    public class PrintScreen
+    {
+        /// <summary>
+        /// Creates an Image object containing a screen shot of the entire desktop
+        /// </summary>
+        /// <returns></returns>
+        public Image CaptureScreen()
+        {
+            return CaptureWindow(User32.GetDesktopWindow());
+        }
+
+        /// <summary>
+        /// Creates an Image object containing a screen shot of a specific window
+        /// </summary>
+        /// <param name="handle">The handle to the window. (In windows forms, this is obtained by the Handle property)</param>
+        /// <returns></returns>
+        public Image CaptureWindow(IntPtr handle)
+        {
+            // get te hDC of the target window
+            IntPtr hdcSrc = User32.GetWindowDC(handle);
+            // get the size
+            User32.RECT windowRect = new User32.RECT();
+            User32.GetWindowRect(handle, ref windowRect);
+            int width = windowRect.right - windowRect.left;
+            int height = windowRect.bottom - windowRect.top;
+            // create a device context we can copy to
+            IntPtr hdcDest = GDI32.CreateCompatibleDC(hdcSrc);
+            // create a bitmap we can copy it to,
+            // using GetDeviceCaps to get the width/height
+            IntPtr hBitmap = GDI32.CreateCompatibleBitmap(hdcSrc, width, height);
+            // select the bitmap object
+            IntPtr hOld = GDI32.SelectObject(hdcDest, hBitmap);
+            // bitblt over
+            GDI32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, GDI32.SRCCOPY);
+            // restore selection
+            GDI32.SelectObject(hdcDest, hOld);
+            // clean up
+            GDI32.DeleteDC(hdcDest);
+            User32.ReleaseDC(handle, hdcSrc);
+
+            // get a .NET image object for it
+            Image img = Image.FromHbitmap(hBitmap);
+            // free up the Bitmap object
+            GDI32.DeleteObject(hBitmap);
+
+            return img;
+        }
+
+        /// <summary>
+        /// Captures a screen shot of a specific window, and saves it to a file
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <param name="filename"></param>
+        /// <param name="format"></param>
+        public void CaptureWindowToFile(IntPtr handle, string filename, ImageFormat format)
+        {
+            Image img = CaptureWindow(handle);
+            img.Save(filename, format);
+        }
+
+        /// <summary>
+        /// Captures a screen shot of the entire desktop, and saves it to a file
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="format"></param>
+        public void CaptureScreenToFile(string filename, ImageFormat format)
+        {
+            Image img = CaptureScreen();
+            img.Save(filename, format);
+        }
+        private class GDI32
+        {
+
+            public const int SRCCOPY = 0x00CC0020; // BitBlt dwRop parameter
+
+            [DllImport("gdi32.dll")]
+            public static extern bool BitBlt(IntPtr hObject, int nXDest, int nYDest,
+                int nWidth, int nHeight, IntPtr hObjectSource,
+                int nXSrc, int nYSrc, int dwRop);
+            [DllImport("gdi32.dll")]
+            public static extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int nWidth,
+                int nHeight);
+            [DllImport("gdi32.dll")]
+            public static extern IntPtr CreateCompatibleDC(IntPtr hDC);
+            [DllImport("gdi32.dll")]
+            public static extern bool DeleteDC(IntPtr hDC);
+            [DllImport("gdi32.dll")]
+            public static extern bool DeleteObject(IntPtr hObject);
+            [DllImport("gdi32.dll")]
+            public static extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
+        }
+        private class User32
+        {
+            [StructLayout(LayoutKind.Sequential)]
+            public struct RECT
+            {
+                public int left;
+                public int top;
+                public int right;
+                public int bottom;
+            }
+
+            [DllImport("user32.dll")]
+            public static extern IntPtr GetDesktopWindow();
+            [DllImport("user32.dll")]
+            public static extern IntPtr GetWindowDC(IntPtr hWnd);
+            [DllImport("user32.dll")]
+            public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
+            [DllImport("user32.dll")]
+            public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
 
         }
     }
