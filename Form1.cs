@@ -13,7 +13,6 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading;
 using ImageFormat = System.Drawing.Imaging.ImageFormat;
-using Tesseract;
 using System.Net;
 
 /*
