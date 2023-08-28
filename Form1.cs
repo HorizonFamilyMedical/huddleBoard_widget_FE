@@ -5,14 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using System.Linq;
 using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-using System.Threading;
-using ImageFormat = System.Drawing.Imaging.ImageFormat;
 using System.Net;
 
 /*
@@ -34,7 +27,7 @@ namespace AccountDetailWindowsFormApp
 
         private async void Delay()
         {
-            string filepath = @"horizon.json";
+            string filepath = @"readFile.json";
             try
             {
 
