@@ -115,8 +115,6 @@ namespace AccountDetailWindowsFormApp
                         flowLayoutPanel1.AutoScroll = true;
                         flowLayoutPanel1.Controls.Add(dataPanel);
                     }));
-                    //flowLayoutPanel1.AutoScroll = true;
-                    //Console.WriteLine("Complete");
                 }
             }
             catch (Exception ex)
