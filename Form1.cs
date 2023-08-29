@@ -16,13 +16,14 @@ namespace AccountDetailWindowsFormApp
     public partial class Form1 : Form
     {
         string AccountNumber;
+        int Acc_Id;
         public Form1()
         {
             InitializeComponent();
             bdy_pnl.Visible = false;
-            ControlExtension.Draggable(widget, true);
+            ControlExtension.Draggable(button1, true);
             ControlExtension.Draggable(bdy_pnl, true);
-            MakeButtonRound(widget);
+            MakeButtonRound(button1);
             LoadData();
         }
 
@@ -31,12 +32,26 @@ namespace AccountDetailWindowsFormApp
             string filepath = @"readFile.json";
             try
             {
+                using (SqlConnection connection = new SqlConnection(@"Data Source = HUDDLEBOARDV2\SQLEXPRESS; Initial Catalog=Huddle_V2;Integrated Security=True"))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM Widget WHERE Displayed = '" + 0 + "'";
+                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var response = reader["APIResult"];
+                            Acc_Id = (int)reader["id"];
+                            string responseContent = response.ToString();
+                            File.WriteAllText(filepath, responseContent);
+                        }
+                    }
+                }
 
                 string jsonData = File.ReadAllText(filepath);
                 JArray jArray = JArray.Parse(jsonData);
-                JArray sortedArray = new JArray(jArray.OrderByDescending(obj => (string)obj["Status"]));
-
-
+                JArray sortedArray = new JArray(jArray[0].OrderByDescending(obj => (string)obj["Status"]));
 
                 foreach (JObject jObject in sortedArray.Cast<JObject>())
                 {
@@ -132,8 +147,9 @@ namespace AccountDetailWindowsFormApp
             try
             {
                 SqlConnection connection = new SqlConnection(@"Data Source = HUDDLEBOARDV2\SQLEXPRESS; Initial Catalog=Huddle_V2;Integrated Security=True");
+                SqlCommand cmd =connection.CreateCommand();
+                cmd.CommandText = "UPDATE Widget SET Displayed = 1 WHERE id= '"+ Acc_Id + "'";
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Widget SET Displayed= '" + 1 + "' WHERE Displayed= '" + 0 + "'AND AccountNumber='" + AccountNumber + "'");
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
@@ -153,8 +169,8 @@ namespace AccountDetailWindowsFormApp
             path.AddEllipse(0, 0, diameter, diameter);
 
             button.Region = new Region(path);
-            widget.FlatStyle = FlatStyle.Flat;
-            widget.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
         }
 
 

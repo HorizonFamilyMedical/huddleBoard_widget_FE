@@ -1,38 +1,31 @@
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Shared.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.DataVisualization.Barcode.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.DataVisualization.Shared.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.Misc.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.Portable.Core.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinEditors.v23.1.xml
-C:\Program Files (x86)\Infragistics\2023.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.v23.1.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\Microsoft.Win32.Registry.AccessControl.6.0.0\lib\net461\Microsoft.Win32.Registry.AccessControl.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\Microsoft.Win32.SystemEvents.6.0.0\lib\net461\Microsoft.Win32.SystemEvents.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Data.Odbc.6.0.0\lib\net461\System.Data.Odbc.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Diagnostics.EventLog.6.0.0\lib\net461\System.Diagnostics.EventLog.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.IO.Ports.6.0.0\lib\net461\System.IO.Ports.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Memory.4.5.4\lib\net461\System.Memory.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Cryptography.Cng.5.0.0\lib\net47\System.Security.Cryptography.Cng.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Cryptography.Pkcs.6.0.0\lib\net461\System.Security.Cryptography.Pkcs.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Cryptography.ProtectedData.6.0.0\lib\net461\System.Security.Cryptography.ProtectedData.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Cryptography.Xml.6.0.0\lib\net461\System.Security.Cryptography.Xml.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.ServiceProcess.ServiceController.6.0.0\lib\net461\System.ServiceProcess.ServiceController.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.xml
-C:\Users\DELL\source\repos\AccountDetailWindowsFormApp\packages\System.Threading.AccessControl.6.0.0\lib\net461\System.Threading.AccessControl.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\Microsoft.Win32.Registry.AccessControl.6.0.0\lib\net461\Microsoft.Win32.Registry.AccessControl.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\Microsoft.Win32.SystemEvents.6.0.0\lib\net461\Microsoft.Win32.SystemEvents.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Data.Odbc.6.0.0\lib\net461\System.Data.Odbc.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Diagnostics.EventLog.6.0.0\lib\net461\System.Diagnostics.EventLog.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.IO.Ports.6.0.0\lib\net461\System.IO.Ports.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Memory.4.5.4\lib\net461\System.Memory.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Cryptography.Cng.5.0.0\lib\net47\System.Security.Cryptography.Cng.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Cryptography.Pkcs.6.0.0\lib\net461\System.Security.Cryptography.Pkcs.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Cryptography.ProtectedData.6.0.0\lib\net461\System.Security.Cryptography.ProtectedData.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Cryptography.Xml.6.0.0\lib\net461\System.Security.Cryptography.Xml.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.ServiceProcess.ServiceController.6.0.0\lib\net461\System.ServiceProcess.ServiceController.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.xml
+C:\Users\kumarka\source\repos\widget_FrontEnd\packages\System.Threading.AccessControl.6.0.0\lib\net461\System.Threading.AccessControl.xml
