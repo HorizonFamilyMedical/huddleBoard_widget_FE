@@ -129,7 +129,7 @@ namespace AccountDetailWindowsFormApp
             }
             else { bdy_pnl.Visible = true; }
 
-          /*  try
+            try
             {
                 SqlConnection connection = new SqlConnection(@"Data Source = HUDDLEBOARDV2\SQLEXPRESS; Initial Catalog=Huddle_V2;Integrated Security=True");
                 connection.Open();
@@ -139,8 +139,8 @@ namespace AccountDetailWindowsFormApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message+":: Something went wrong.");
-            }*/
+                Console.WriteLine(ex.Message + ":: Something went wrong.");
+            }
         }
 
         private void MakeButtonRound(Button button)
